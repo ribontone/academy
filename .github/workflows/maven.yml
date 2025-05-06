@@ -30,7 +30,7 @@ jobs:
     - name: Build with Maven
       uses: ./.github/actions/maven_build
     - name: Create docker
-      uses: ./github/actions/dockerbuild
+      uses: ./.github/actions/dockerbuild
       with:
         image_name: "aMinhaImagem"
         tag_name: "estaGANDAtag"
