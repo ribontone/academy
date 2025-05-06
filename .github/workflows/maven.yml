@@ -14,17 +14,17 @@ on:
   #  branches: [ "main" ]
   #pull_request:
   #  branches: [ "main" ]
-  inputs:
-    environment:
-      description: 'environment'
-      required: true
-      default: 'warning'
-      type: choice
-      options:
-        - Prod
-        - E2E
-        - Test
-        - Int
+    inputs:
+      environment:
+        description: 'environment'
+        required: true
+        default: 'warning'
+        type: choice
+        options:
+          - Prod
+          - E2E
+          - Test
+          - Int
 
 
 env:
