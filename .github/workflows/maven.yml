@@ -58,11 +58,12 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/download-artifact@v4
-      with:
-        name: artifact_name
-    - name: Listar o docker image
-      run: docker image ls
+      - uses: actions/download-artifact@v4
+        with:
+          name: artifact_name
+      - run: docker load -i ${{env.image_name}}.tar
+      - name: Listar o docker image
+        run: docker image ls
 
 
 
