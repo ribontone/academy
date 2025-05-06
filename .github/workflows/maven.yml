@@ -37,6 +37,7 @@ jobs:
 
 
   newjob:
+    needs: build
     runs-on: ubuntu-latest
     steps:
     - name: Listar o docker image
