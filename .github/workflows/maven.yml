@@ -10,10 +10,22 @@ name: Java CI with Maven
 
 on:
   workflow_dispatch:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+  #push:
+  #  branches: [ "main" ]
+  #pull_request:
+  #  branches: [ "main" ]
+  inputs:
+    environment:
+      description: 'environment'
+      required: true
+      default: 'warning'
+      type: choice
+      options:
+        - Prod
+        - E2E
+        - Test
+        - Int
+
 
 env:
   image_name: "aminhaimg"
@@ -75,6 +87,7 @@ jobs:
   newjob:
     needs: build
     runs-on: ubuntu-latest
+    environment: ${{ inputs.environment }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/download-artifact@v4
