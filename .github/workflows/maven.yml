@@ -32,8 +32,8 @@ jobs:
     - name: Create docker
       uses: ./.github/actions/dockerbuild
       with:
-        image_name: "aMinhaImagem"
-        tag_name: "estaGANDAtag"
+        image_name: "aminhaimg"
+        tag_name: "estagandatag"
     - name: Listar o docker image
       run: docker image ls
 
