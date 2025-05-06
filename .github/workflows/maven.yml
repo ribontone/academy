@@ -34,6 +34,11 @@ jobs:
       with:
         image_name: "aminhaimg"
         tag_name: "estagandatag"
+
+
+  newjob:
+    runs-on: ubuntu-latest
+    steps:
     - name: Listar o docker image
       run: docker image ls
 
