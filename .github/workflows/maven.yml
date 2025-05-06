@@ -30,7 +30,10 @@ jobs:
     - name: Build with Maven
       uses: ./.github/actions/maven_build
     - name: Create docker
-      run: docker build . --file Dockerfile --tag academy:$(date +%s)
+      uses: ./github/actions/dockerbuild
+      with:
+        image_name: "aMinhaImagem"
+        tag_name: "estaGANDAtag"
     - name: Listar o docker image
       run: docker image ls
 
