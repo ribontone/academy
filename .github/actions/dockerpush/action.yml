@@ -1,0 +1,18 @@
+name: DockerPuuuushhh
+description: "pushar o DOCKER"
+inputs:
+  docker_username:
+    description: "docker_username"
+    required: true
+  docker_image:
+    description: "docker_image"
+    required: true
+runs:
+  using: composite
+  steps:
+    - name: Build app docker image
+      run: |
+        docker tag ${{inputs.docker_image}} ${{inputs.docker_username}}/${{inputs.docker_image}}
+        docker push ${{inputs.docker_username}}/${{inputs.docker_image}}
+      shell: bash
+

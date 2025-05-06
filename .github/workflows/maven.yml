@@ -47,13 +47,6 @@ jobs:
 
 
 
-
-
-
-
-
-
-
   newjob:
     needs: build
     runs-on: ubuntu-latest
@@ -64,8 +57,21 @@ jobs:
       - run: docker load -i ${{env.image_name}}.tar
       - name: Listar o docker image
         run: docker image ls
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ vars.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+      - name: pushar a imagem
+        uses: ./.github/actions/dockerpush
+        with:
+          docker_username: ${{ vars.DOCKERHUB_USERNAME }}
+          docker_image: ${{image_name}}
 
 
 
 
-  
+
+
+
+
