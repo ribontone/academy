@@ -66,9 +66,7 @@ jobs:
         uses: ./.github/actions/dockerpush
         with:
           docker_username: ${{ vars.DOCKERHUB_USERNAME }}
-          docker_image: ${{image_name}}
-
-
+          docker_image: ${{env.image_name}}:${{env.tag_name}}
 
 
 
