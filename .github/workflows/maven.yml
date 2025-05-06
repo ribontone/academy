@@ -60,7 +60,7 @@ jobs:
     steps:
     - uses: actions/download-artifact@v4
       with:
-      name: my-artifact
+        name: my-artifact
     - name: Listar o docker image
       run: docker image ls
 
